@@ -21,6 +21,7 @@ class WordFinder:
             return None
     
 class SpecialWordFinder(WordFinder):
+    """Chains off of word finder to remove blank lines and words starting with #"""
     def read_words(self, file_path):
         with open("words.txt", 'r') as file:
             words = [line.strip() for line in file if line.strip() and not line.startswith('#')]
@@ -31,3 +32,4 @@ print(wf.random())
 
 swf = SpecialWordFinder("words.txt")
 print(swf.random())
+
